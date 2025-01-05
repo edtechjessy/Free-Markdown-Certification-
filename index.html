@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code of Honor and Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .tutorial-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tutorial-links p {
+            font-size: 16px;
+            color: #333;
+        }
+        .tutorial-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        .tutorial-links a:hover {
+            background-color: #333;
+            color: white;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .code-of-honor {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .btn-submit, .btn-practice {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .btn-submit:hover, .btn-practice:hover {
+            background-color: #45a049;
+        }
+        .btn-practice {
+            background-color: #fff;
+            color: #333;
+            border: 2px solid #333;
+        }
+        .btn-practice:hover {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Markdown Essentials Certification Test</h1>
+    
+    <div class="tutorial-links">
+        <p>Need to practice? Check out this free tutorial:</p>
+        <a href="https://www.markdowntutorial.com/" target="_blank">Markdown Tutorial</a>
+    </div>
+
+   
+
+    <!-- Name input and honor agreement -->
+    <div class="input-group">
+        <label for="name">Enter Your Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    
+   
+
+   <div class="code-of-honor">
+    <p><strong>Code of Honor:</strong></p>
+    <p> I pledge to complete the test with integrity, ensuring that all my answers are my own and free from any form of cheating.</p>
+ <div class="input-group">
+    <label>
+        <input type="checkbox" id="agree" name="agree" required>
+        <span>I agree to the Code of Honor</span>
+    </label>
+</div>
+
+<style>
+    .input-group label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .input-group input[type="checkbox"] {
+        width: 25px;  /* Adjust size */
+        height: 25px; /* Adjust size */
+        margin-right: 10px;
+    }
+
+    .input-group span {
+        font-size: 18px; /* Optional: Change text size */
+    }
+</style>
+
+    </div>
+
+    <!-- Button to start the test -->
+    <button class="btn-submit" onclick="startQuiz()">Start Test</button>
+</div>
+
+<script>
+    function startQuiz() {
+        const name = document.getElementById('name').value;
+        const agree = document.getElementById('agree').checked;
+
+        if (!name || !agree) {
+            alert('Please fill in your name and agree to the Code of Honor.');
+            return;
+        }
+
+        localStorage.setItem('name', name); // Store the name for use in the quiz
+        window.location.href = 'quiz.html'; // Redirect to the quiz page
+    }
+</script>
+
+</body>
+</html>
