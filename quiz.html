@@ -200,11 +200,24 @@
             result.innerHTML = 'You need to score 100% to pass. Please try again.';
             tryAgainBtn.style.display = 'inline-block'; // Show try again button if failed
         }
-    
+    }
+
     // Function to reset the quiz
     function resetQuiz() {
         // Reset selected answers
         const selectedBtns = document.querySelectorAll('.answer-btn.selected');
         selectedBtns.forEach(button => button.classList.remove('selected'));
         document.querySelectorAll('.answer-btn').forEach(button => {
+            button.style.backgroundColor = ''; // Reset background color
+        });
 
+        // Reset result and try again button
+        const result = document.getElementById('result');
+        result.innerHTML = '';
+        const tryAgainBtn = document.querySelector('.btn-try-again');
+        tryAgainBtn.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
