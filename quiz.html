@@ -144,8 +144,6 @@
             </div>
         </div>
 
-        <!-- Add questions 6-15 in the same format -->
-
         <!-- Submit Button -->
         <button type="button" class="btn-submit" onclick="checkAnswers()">Submit</button>
         <button type="button" class="btn-try-again" style="display:none;" onclick="resetQuiz()">Try Again</button>
@@ -169,11 +167,11 @@
         });
     });
 
-    // Function to check answers
+    // Function to check answers and redirect
     function checkAnswers() {
         const answers = document.querySelectorAll('.answer-btn');
         let correctAnswers = 0;
-        const totalQuestions = 5; // Adjust for total questions
+        const totalQuestions = 5;
 
         answers.forEach(button => {
             if (button.classList.contains('selected')) {
@@ -194,28 +192,19 @@
             result.innerHTML = 'Congratulations! You passed the quiz with 100%.';
             tryAgainBtn.style.display = 'none'; // Hide try again button if passed
 
-            // Redirect to certificate page
-            window.location.href = 'certificate.html'; // Replace with the actual certificate page URL
+            // Redirect to certificate page after a brief delay
+            setTimeout(() => {
+                window.location.href = 'certificate.html'; // Redirect to the certificate page
+            }, 1000); // Delay the redirect by 1 second to allow user to see result
         } else {
             result.innerHTML = 'You need to score 100% to pass. Please try again.';
             tryAgainBtn.style.display = 'inline-block'; // Show try again button if failed
         }
-    }
-
+    
     // Function to reset the quiz
     function resetQuiz() {
         // Reset selected answers
         const selectedBtns = document.querySelectorAll('.answer-btn.selected');
         selectedBtns.forEach(button => button.classList.remove('selected'));
         document.querySelectorAll('.answer-btn').forEach(button => {
-            button.style.backgroundColor = ''; // Reset colors
-        });
 
-        // Hide results and try again button
-        document.getElementById('result').innerHTML = '';
-        document.querySelector('.btn-try-again').style.display = 'none';
-    }
-</script>
-
-</body>
-</html>
