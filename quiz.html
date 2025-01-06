@@ -186,37 +186,6 @@
                 }
             }
         });
-        function checkAnswers() {
-    const answers = document.querySelectorAll('.answer-btn');
-    let correctAnswers = 0;
-    const totalQuestions = 5; // Adjust for total questions
-
-    answers.forEach(button => {
-        if (button.classList.contains('selected')) {
-            const isCorrect = button.getAttribute('data-correct') === 'true';
-            if (isCorrect) {
-                correctAnswers++;
-                button.style.backgroundColor = 'lightgreen'; // Correct answer
-            } else {
-                button.style.backgroundColor = 'lightcoral'; // Incorrect answer
-            }
-        }
-    });
-
-    // Show result
-    const result = document.getElementById('result');
-    const tryAgainBtn = document.querySelector('.btn-try-again');
-    if (correctAnswers === totalQuestions) {
-        result.innerHTML = 'Congratulations! You passed the quiz with 100%.';
-        tryAgainBtn.style.display = 'none'; // Hide try again button if passed
-
-        // Redirect to certificate page
-        window.location.href = 'certificate.html'; // Replace with the actual certificate page URL
-    } else {
-        result.innerHTML = 'You need to score 100% to pass. Please try again.';
-        tryAgainBtn.style.display = 'inline-block'; // Show try again button if failed
-    }
-        }
 
         // Show result
         const result = document.getElementById('result');
@@ -224,6 +193,9 @@
         if (correctAnswers === totalQuestions) {
             result.innerHTML = 'Congratulations! You passed the quiz with 100%.';
             tryAgainBtn.style.display = 'none'; // Hide try again button if passed
+
+            // Redirect to certificate page
+            window.location.href = 'certificate.html'; // Replace with the actual certificate page URL
         } else {
             result.innerHTML = 'You need to score 100% to pass. Please try again.';
             tryAgainBtn.style.display = 'inline-block'; // Show try again button if failed
